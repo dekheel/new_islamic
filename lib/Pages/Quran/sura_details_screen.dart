@@ -15,6 +15,7 @@ class SuraDetailsScreen extends StatefulWidget {
 
 class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   List<String> suraLines = [];
+  String suraConCatAyat = "";
 
   @override
   Widget build(BuildContext context) {
@@ -39,33 +40,35 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                     fit: BoxFit.fill,
                     height: double.infinity,
                     width: double.infinity)),
-            Column(
-              children: [
-                const SizedBox(height: 20),
-                Text(args.suraArName,
-                    style: const TextStyle(
-                        fontSize: 20,
-                        color: AppColors.primaryDark,
-                        fontWeight: FontWeight.bold)),
-                const SizedBox(height: 10),
-                Expanded(
-                  child: suraLines.isEmpty
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Text(args.suraArName,
+                      style: const TextStyle(
+                          fontSize: 20,
+                          color: AppColors.primaryDark,
+                          fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 10),
+                  suraLines.isEmpty
                       ? const Center(
                           child: CircularProgressIndicator(
                             color: AppColors.primaryDark,
                           ),
                         )
-                      : ListView.builder(
-                          itemBuilder: (context, index) {
-                            return AyahPreview(
-                              index: index,
-                              content: suraLines[index],
-                            );
-                          },
-                          itemCount: suraLines.length,
-                        ),
-                )
-              ],
+                      : Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 0, horizontal: 25),
+                          child: Text(suraConCatAyat,
+                              textAlign: TextAlign.justify,
+                              textDirection: TextDirection.rtl,
+                              style: const TextStyle(
+                                  fontSize: 20,
+                                  color: AppColors.primaryDark,
+                                  fontWeight: FontWeight.bold)),
+                        )
+                ],
+              ),
             )
           ],
         ));
@@ -76,7 +79,15 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         await rootBundle.loadString("assets/files/Suras/$index.txt");
     List<String> quranLines = quranContent.split("\n");
     suraLines = quranLines;
-
+    _concatenateQuranContent(quranLines);
     setState(() {});
+  }
+
+  _concatenateQuranContent(List<String> quranLines) {
+    for (int i = 0; i < quranLines.length; i++) {
+      if (quranLines[i].trim().isNotEmpty) {
+        suraConCatAyat = "$suraConCatAyat ${quranLines[i].trim()} {${i + 1}}";
+      }
+    }
   }
 }
