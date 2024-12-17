@@ -22,6 +22,8 @@ class HadethDetailsScreen extends StatelessWidget {
           alignment: Alignment.topCenter,
           children: [
             Container(
+              width: double.infinity,
+              height: double.infinity,
               padding: EdgeInsets.symmetric(vertical: 50, horizontal: 30),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -29,18 +31,19 @@ class HadethDetailsScreen extends StatelessWidget {
                   image: DecorationImage(
                       image: AssetImage(AppAssets.hadethDetailsBg),
                       fit: BoxFit.fill)),
-              child: Column(
-                children: [
-                  Text(args.title,
-                      style: TextStyle(
-                          fontSize: 20, color: AppColors.primaryDark)),
-                  SizedBox(height: 10),
-                  Expanded(
-                      child: Text(args.content.join(""),
-                          textAlign: TextAlign.right,
-                          style: TextStyle(
-                              fontSize: 20, color: AppColors.primaryDark))),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Text(args.title,
+                        style: TextStyle(
+                            fontSize: 20, color: AppColors.primaryDark)),
+                    SizedBox(height: 10),
+                    Text(args.content.join(""),
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(
+                            fontSize: 20, color: AppColors.primaryDark)),
+                  ],
+                ),
               ),
             )
           ],
