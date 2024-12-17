@@ -45,22 +45,23 @@ class _HadethTabState extends State<HadethTab> {
                       image: DecorationImage(
                           image: AssetImage(AppAssets.hadethContentBg),
                           fit: BoxFit.fill)),
-                  child: Column(
-                    children: [
-                      Text(hadethList[index].title,
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: AppColors.blackColor,
-                              fontWeight: FontWeight.bold)),
-                      SizedBox(height: 5),
-                      Expanded(
-                          child: Text(hadethList[index].content.join(""),
-                              textAlign: TextAlign.right,
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: AppColors.blackColor,
-                                  fontWeight: FontWeight.bold))),
-                    ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Text(hadethList[index].title,
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: AppColors.blackColor,
+                                fontWeight: FontWeight.bold)),
+                        SizedBox(height: 5),
+                        Text(hadethList[index].content.join(""),
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: AppColors.blackColor,
+                                fontWeight: FontWeight.bold)),
+                      ],
+                    ),
                   ),
                 ),
               );
