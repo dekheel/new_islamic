@@ -19,55 +19,51 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int selectedBottomNavBarIndex = 0;
 
-  List<Widget> tabsBody = const [
-    QuranTab(),
+  List<Widget> tabsBody = [
+    const QuranTab(),
     HadethTab(),
-    SebhaTab(),
-    RadioTab(),
-    TimerTab(),
+    const SebhaTab(),
+    const RadioTab(),
+    const TimerTab(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Stack(
-        children: [
-          Image.asset(_backGroundBuilder(),
-              width: double.infinity,
-              height: double.infinity,
-              fit: BoxFit.fill),
-          Scaffold(
-              bottomNavigationBar: Theme(
-                data: Theme.of(context)
-                    .copyWith(canvasColor: AppColors.primaryDark),
-                child: BottomNavigationBar(
-                  currentIndex: selectedBottomNavBarIndex,
-                  onTap: (index) {
-                    selectedBottomNavBarIndex = index;
-                    setState(() {});
-                  },
-                  items: [
-                    BottomNavigationBarItem(
-                        label: "quran",
-                        icon: _bottomNavBarBuilder(0, AppAssets.quranIcon)),
-                    BottomNavigationBarItem(
-                        label: "Hadeth",
-                        icon: _bottomNavBarBuilder(1, AppAssets.hadethIcon)),
-                    BottomNavigationBarItem(
-                        label: "Sebha",
-                        icon: _bottomNavBarBuilder(2, AppAssets.sebhaIcon)),
-                    BottomNavigationBarItem(
-                        label: "Radio",
-                        icon: _bottomNavBarBuilder(3, AppAssets.radioIcon)),
-                    BottomNavigationBarItem(
-                        label: "Time",
-                        icon: _bottomNavBarBuilder(4, AppAssets.timeIcon)),
-                  ],
-                ),
+    return Stack(
+      children: [
+        Image.asset(_backGroundBuilder(),
+            width: double.infinity, height: double.infinity, fit: BoxFit.fill),
+        Scaffold(
+            bottomNavigationBar: Theme(
+              data: Theme.of(context)
+                  .copyWith(canvasColor: AppColors.primaryDark),
+              child: BottomNavigationBar(
+                currentIndex: selectedBottomNavBarIndex,
+                onTap: (index) {
+                  selectedBottomNavBarIndex = index;
+                  setState(() {});
+                },
+                items: [
+                  BottomNavigationBarItem(
+                      label: "quran",
+                      icon: _bottomNavBarBuilder(0, AppAssets.quranIcon)),
+                  BottomNavigationBarItem(
+                      label: "Hadeth",
+                      icon: _bottomNavBarBuilder(1, AppAssets.hadethIcon)),
+                  BottomNavigationBarItem(
+                      label: "Sebha",
+                      icon: _bottomNavBarBuilder(2, AppAssets.sebhaIcon)),
+                  BottomNavigationBarItem(
+                      label: "Radio",
+                      icon: _bottomNavBarBuilder(3, AppAssets.radioIcon)),
+                  BottomNavigationBarItem(
+                      label: "Time",
+                      icon: _bottomNavBarBuilder(4, AppAssets.timeIcon)),
+                ],
               ),
-              body: tabsBody[selectedBottomNavBarIndex])
-        ],
-      ),
+            ),
+            body: tabsBody[selectedBottomNavBarIndex])
+      ],
     );
   }
 

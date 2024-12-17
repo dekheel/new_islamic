@@ -20,4 +20,11 @@ class AppAssets {
   static const String recentQuranImage = '$routePath/recent_quran_image.png';
 
   static const String suraNumberImage = '$routePath/Sura Number.png';
+  static const String hadethContentBg =
+      '$routePath/hadeth_content_background.png';
+  static const String hadethDetailsBg =
+      '$routePath/hadeth_details_background.png';
+
+  static const String quranContentBg =
+      '$routePath/quran_content_background.png';
 }
