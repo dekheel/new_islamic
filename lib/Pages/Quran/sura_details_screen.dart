@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app_new/Model/sura_model.dart';
-import 'package:islami_app_new/Pages/Quran/Widgets/ayah_preview.dart';
 import 'package:islami_app_new/core/app_assets.dart';
 import 'package:islami_app_new/core/app_colors.dart';
 
@@ -21,7 +20,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
     if (suraLines.isEmpty) {
-      _loadQuranContent(args.suraNo);
+      _loadQuranContent(args.fileName);
     }
 
     return Scaffold(
@@ -74,9 +73,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         ));
   }
 
-  void _loadQuranContent(int index) async {
+  void _loadQuranContent(String fileName) async {
     String quranContent =
-        await rootBundle.loadString("assets/files/Suras/$index.txt");
+        await rootBundle.loadString("assets/files/Suras/$fileName");
     List<String> quranLines = quranContent.split("\n");
     suraLines = quranLines;
     _concatenateQuranContent(quranLines);
