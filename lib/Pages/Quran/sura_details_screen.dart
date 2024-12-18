@@ -39,23 +39,23 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                     fit: BoxFit.fill,
                     height: double.infinity,
                     width: double.infinity)),
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 20),
-                  Text(args.suraArName,
-                      style: const TextStyle(
-                          fontSize: 20,
-                          color: AppColors.primaryDark,
-                          fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 10),
-                  suraLines.isEmpty
-                      ? const Center(
-                          child: CircularProgressIndicator(
-                            color: AppColors.primaryDark,
-                          ),
-                        )
-                      : Padding(
+            suraLines.isEmpty
+                ? const Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.primaryDark,
+                    ),
+                  )
+                : SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 20),
+                        Text(args.suraArName,
+                            style: const TextStyle(
+                                fontSize: 20,
+                                color: AppColors.primaryDark,
+                                fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 10),
+                        Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 0, horizontal: 25),
                           child: Text(suraConCatAyat,
@@ -66,9 +66,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                                   color: AppColors.primaryDark,
                                   fontWeight: FontWeight.bold)),
                         )
-                ],
-              ),
-            )
+                      ],
+                    ),
+                  )
           ],
         ));
   }

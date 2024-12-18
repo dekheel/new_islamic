@@ -356,6 +356,20 @@ class SuraModel {
 
   static final List<SuraModel> suraList = [];
 
+  // return SuraNo from its name
+
+  static int buildSuraNo(SuraModel sura_model) {
+    return int.parse(
+        sura_model.fileName.substring(0, sura_model.fileName.indexOf('.')));
+  }
+
+  // return SuraModel by its No
+  static SuraModel suraByIndex(String index) {
+    return suraList.firstWhere((suraModel) {
+      return buildSuraNo(suraModel).toString() == index;
+    });
+  }
+
   SuraModel(
       {required this.suraEnName,
       required this.suraArName,

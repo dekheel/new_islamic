@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   int selectedBottomNavBarIndex = 0;
 
   List<Widget> tabsBody = [
-    const QuranTab(),
+    QuranTab(),
     HadethTab(),
     const SebhaTab(),
     const RadioTab(),
