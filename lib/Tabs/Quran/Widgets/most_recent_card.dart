@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami_app_new/Pages/Quran/sura_details_screen.dart';
 import 'package:islami_app_new/core/app_assets.dart';
 import 'package:islami_app_new/core/app_colors.dart';
+import 'package:islami_app_new/core/app_theme.dart';
 
 import '../../../Model/sura_model.dart';
 
@@ -12,6 +13,8 @@ class MostRecentCard extends StatelessWidget {
   Future<void> Function(int index)? deleteRecent;
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = AppTheme.darkTheme.textTheme;
+
     return suraModel != null
         ? Stack(
             children: [
@@ -36,16 +39,14 @@ class MostRecentCard extends StatelessWidget {
                                 children: [
                                   Text(
                                     suraModel!.suraArName,
-                                    style: _txtStyleBuilder(
-                                        color: AppColors.blackColor,
-                                        fontWeight: FontWeight.bold),
+                                    style: textTheme.bodyLarge
+                                        ?.copyWith(color: AppColors.blackColor),
                                   ),
                                   Text(suraModel!.suraEnName,
-                                      style: _txtStyleBuilder(
-                                          color: AppColors.blackColor,
-                                          fontWeight: FontWeight.bold)),
+                                      style: textTheme.bodyLarge?.copyWith(
+                                          color: AppColors.blackColor)),
                                   Text(suraModel!.noVerses,
-                                      style: _txtStyleBuilder(
+                                      style: textTheme.bodyLarge?.copyWith(
                                           color: AppColors.blackColor)),
                                 ],
                               ),
@@ -76,17 +77,8 @@ class MostRecentCard extends StatelessWidget {
         : Text(
             textAlign: TextAlign.center,
             "No History",
-            style: _txtStyleBuilder(
-                color: AppColors.primaryDark, fontWeight: FontWeight.bold),
+            style:
+                textTheme.headlineLarge?.copyWith(color: AppColors.primaryDark),
           );
-  }
-
-  TextStyle _txtStyleBuilder(
-      {Color color = AppColors.textLightColor, FontWeight? fontWeight}) {
-    return TextStyle(
-      fontSize: 16,
-      color: color,
-      fontWeight: fontWeight,
-    );
   }
 }

@@ -6,6 +6,7 @@ import 'package:islami_app_new/Tabs/Quran/Widgets/most_recent_card.dart';
 import 'package:islami_app_new/Tabs/Quran/Widgets/suras_list.dart';
 import 'package:islami_app_new/core/app_assets.dart';
 import 'package:islami_app_new/core/app_colors.dart';
+import 'package:islami_app_new/core/app_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class QuranTab extends StatefulWidget {
@@ -41,6 +42,7 @@ class _QuranTabState extends State<QuranTab> {
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = AppTheme.darkTheme.textTheme;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: SingleChildScrollView(
@@ -49,7 +51,7 @@ class _QuranTabState extends State<QuranTab> {
           children: [
             Image.asset(AppAssets.logo, height: 100),
             TextField(
-              style: _txtStyleBuilder(),
+              style: textTheme.headlineLarge,
               cursorColor: AppColors.whiteColor,
               controller: searchTxt,
               onChanged: (value) {
@@ -72,7 +74,7 @@ class _QuranTabState extends State<QuranTab> {
               },
               decoration: InputDecoration(
                   hintText: 'Sura Name',
-                  hintStyle: _txtStyleBuilder(),
+                  hintStyle: textTheme.headlineLarge,
                   enabledBorder: _borderBuilder(),
                   focusedBorder: _borderBuilder(),
                   prefixIcon: const ImageIcon(
@@ -99,7 +101,7 @@ class _QuranTabState extends State<QuranTab> {
             searchTxt.text.isEmpty
                 ? Text(
                     "Most Recently",
-                    style: _txtStyleBuilder(),
+                    style: textTheme.headlineLarge,
                   )
                 : const SizedBox.shrink(),
 
@@ -125,7 +127,7 @@ class _QuranTabState extends State<QuranTab> {
             const SizedBox(height: 10),
             Text(
               "Suras list",
-              style: _txtStyleBuilder(),
+              style: AppTheme.darkTheme.textTheme.headlineLarge,
             ),
             // const SizedBox(height: 10),
             SizedBox(
@@ -168,15 +170,6 @@ class _QuranTabState extends State<QuranTab> {
         color: AppColors.primaryDark,
         width: 2,
       ),
-    );
-  }
-
-  TextStyle _txtStyleBuilder(
-      {Color color = AppColors.textLightColor, FontWeight? fontWeight}) {
-    return TextStyle(
-      fontSize: 16,
-      color: color,
-      fontWeight: fontWeight,
     );
   }
 

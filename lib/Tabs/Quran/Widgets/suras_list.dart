@@ -3,6 +3,7 @@ import 'package:islami_app_new/Model/sura_model.dart';
 import 'package:islami_app_new/Pages/Quran/sura_details_screen.dart';
 import 'package:islami_app_new/core/app_assets.dart';
 import 'package:islami_app_new/core/app_colors.dart';
+import 'package:islami_app_new/core/app_theme.dart';
 
 class SurasList extends StatelessWidget {
   SurasList({super.key, required this.index, required this.suraModel});
@@ -12,6 +13,8 @@ class SurasList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = AppTheme.darkTheme.textTheme;
+
     return Row(
       children: [
         Stack(
@@ -20,7 +23,7 @@ class SurasList extends StatelessWidget {
             Image.asset(AppAssets.suraNumberImage),
             Text(
               '$index',
-              style: _txtStyleBuilder(),
+              style: textTheme.bodyLarge,
             )
           ],
         ),
@@ -30,32 +33,20 @@ class SurasList extends StatelessWidget {
           children: [
             Text(
               suraModel.suraEnName,
-              style:
-                  _txtStyleBuilder(fontWeight: FontWeight.bold, fontSize: 12),
+              style: textTheme.bodyLarge,
             ),
             Text(
               '${suraModel.noVerses} verses',
-              style: _txtStyleBuilder(fontSize: 12),
+              style: textTheme.bodySmall,
             ),
           ],
         ),
         const Spacer(),
         Text(
           suraModel.suraArName,
-          style: _txtStyleBuilder(fontWeight: FontWeight.bold, fontSize: 12),
+          style: textTheme.bodyLarge,
         ),
       ],
-    );
-  }
-
-  TextStyle _txtStyleBuilder(
-      {Color color = AppColors.textLightColor,
-      FontWeight? fontWeight,
-      double fontSize = 16}) {
-    return TextStyle(
-      fontSize: fontSize,
-      color: color,
-      fontWeight: fontWeight,
     );
   }
 }
