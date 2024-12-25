@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   List<Widget> tabsBody = [
     QuranTab(),
     HadethTab(),
-    const SebhaTab(),
+    SebhaTab(),
     const RadioTab(),
     const TimerTab(),
   ];

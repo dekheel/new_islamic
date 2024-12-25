@@ -133,6 +133,7 @@ class _QuranTabState extends State<QuranTab> {
             SizedBox(
               height: 600,
               child: ListView.separated(
+                  physics: null,
                   itemBuilder: (context, index) {
                     SuraModel sura_model = filteredSuraList[index];
                     return InkWell(

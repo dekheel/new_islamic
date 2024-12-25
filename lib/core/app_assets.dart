@@ -33,4 +33,7 @@ class AppAssets {
   static const String introScreenQuran = '$routePath/welcome quran.png';
   static const String introScreenBearish = '$routePath/welcome bearish.png';
   static const String introScreenRadio = '$routePath/welcome radio.png';
+
+  static const String sebhaHead = '$routePath/sebha_head.png';
+  static const String sebhaBody = '$routePath/sebha_body.png';
 }

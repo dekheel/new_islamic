@@ -92,6 +92,8 @@ class _OnBoardingState extends State<OnBoarding> {
         animationDuration: 250,
         skip: Text("Skip", style: getTextStyle()),
         next: Text("Next", style: getTextStyle()),
+        // backStyle: ButtonStyle(
+        //     padding: WidgetStatePropertyAll(EdgeInsets.only(right: 0))),
         back: Text(
           "Back",
           style: getTextStyle(),
