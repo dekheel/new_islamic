@@ -9,7 +9,6 @@ class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
 
   static const String routeName = "onBoarding";
-
   @override
   State<OnBoarding> createState() => _OnBoardingState();
 }
@@ -34,6 +33,7 @@ class _OnBoardingState extends State<OnBoarding> {
             decoration: getPageDecoration(),
           ),
           PageViewModel(
+
             titleWidget:
                 buildImage(path: AppAssets.logo, size: size.height * .15),
             bodyWidget: buildImage(
@@ -54,6 +54,7 @@ class _OnBoardingState extends State<OnBoarding> {
             decoration: getPageDecoration(),
           ),
           PageViewModel(
+
             titleWidget:
                 buildImage(path: AppAssets.logo, size: size.height * .15),
             bodyWidget: buildImage(
@@ -64,6 +65,8 @@ class _OnBoardingState extends State<OnBoarding> {
             decoration: getPageDecoration(),
           ),
           PageViewModel(
+
+
             titleWidget:
                 buildImage(path: AppAssets.logo, size: size.height * .15),
             bodyWidget: buildImage(

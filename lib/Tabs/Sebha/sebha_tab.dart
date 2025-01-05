@@ -19,6 +19,16 @@ class _SebhaTabState extends State<SebhaTab> {
   List<String> tasbeehWords = ["سبحان الله", "الحمد لله", "الله اكبر"];
 
   @override
+  State<SebhaTab> createState() => _SebhaTabState();
+}
+
+class _SebhaTabState extends State<SebhaTab> {
+  List<String> tasbeehWords = ["سبحان الله", "الحمد لله", "الله اكبر"];
+
+  double rotationAngle = 0;
+  int counter = 0;
+  int index = 0;
+  @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Column(
@@ -54,6 +64,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     AppAssets.sebhaBody,
                     height: screenSize.height * .40,
                     fit: BoxFit.fill,
+
                   ),
                 ),
               ),

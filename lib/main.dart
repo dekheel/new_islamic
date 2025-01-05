@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app_new/Pages/Hadeth/hadeth_details_screen.dart';
 import 'package:islami_app_new/Pages/OnBoarding/on_boarding.dart';
@@ -7,6 +8,7 @@ import 'package:islami_app_new/Pages/Home/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
+
   WidgetsFlutterBinding
       .ensureInitialized(); // Ensure Flutter bindings are initialized
   final prefs = await SharedPreferences.getInstance();
@@ -29,6 +31,7 @@ class MyApp extends StatelessWidget {
       initialRoute:
           showOnboarding == true ? HomePage.routeName : OnBoarding.routeName,
       routes: {
+        OnBoarding.routeName: (context) => OnBoarding(),
         HomePage.routeName: (context) => const HomePage(),
         HadethDetailsScreen.routeName: (context) => const HadethDetailsScreen(),
         SuraDetailsScreen.routeName: (context) => SuraDetailsScreen(),
