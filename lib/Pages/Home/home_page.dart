@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     HadethTab(),
     const SebhaTab(),
     RadioTab(),
-    const TimerTab(),
+    TimeTab(),
   ];
 
   @override
