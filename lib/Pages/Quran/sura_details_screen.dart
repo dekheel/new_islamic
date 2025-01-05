@@ -67,8 +67,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                                 textAlign: TextAlign.center,
                                 textDirection: TextDirection.rtl,
                                 style: textTheme.headlineLarge?.copyWith(
-                                  color: AppColors.primaryDark,
-                                )),
+                                    color: AppColors.primaryDark, height: 2)),
                           ),
                         ),
                       )

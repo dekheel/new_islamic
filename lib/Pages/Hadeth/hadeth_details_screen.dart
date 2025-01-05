@@ -44,8 +44,8 @@ class HadethDetailsScreen extends StatelessWidget {
                     child: SingleChildScrollView(
                       child: Text(args.content.join(""),
                           textAlign: TextAlign.center,
-                          style: textTheme.headlineLarge
-                              ?.copyWith(color: AppColors.primaryDark)),
+                          style: textTheme.headlineLarge?.copyWith(
+                              color: AppColors.primaryDark, height: 2)),
                     ),
                   ),
                 ],

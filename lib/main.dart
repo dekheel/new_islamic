@@ -8,30 +8,34 @@ import 'package:islami_app_new/Pages/Home/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+
+  WidgetsFlutterBinding
+      .ensureInitialized(); // Ensure Flutter bindings are initialized
   final prefs = await SharedPreferences.getInstance();
-  final bool? showOnBoarding = prefs.getBool(OnBoarding.routeName);
-  runApp(MyApp(
-    showOnBoarding: showOnBoarding,
-  ));
+  final bool showOnboarding = prefs.getBool('onBoarding') ?? false;
+
+  runApp(MyApp(showOnboarding: showOnboarding));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.showOnBoarding});
-  final bool? showOnBoarding;
+  const MyApp({super.key, required this.showOnboarding});
 
+  final bool showOnboarding;
+
+  @override
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Islamic',
       debugShowCheckedModeBanner: false,
       initialRoute:
-          showOnBoarding == true ? HomePage.routeName : OnBoarding.routeName,
+          showOnboarding == true ? HomePage.routeName : OnBoarding.routeName,
       routes: {
         OnBoarding.routeName: (context) => OnBoarding(),
         HomePage.routeName: (context) => const HomePage(),
         HadethDetailsScreen.routeName: (context) => const HadethDetailsScreen(),
         SuraDetailsScreen.routeName: (context) => SuraDetailsScreen(),
+        OnBoarding.routeName: (context) => const OnBoarding(),
       },
       themeMode: ThemeMode.light,
       darkTheme: AppTheme.darkTheme,
