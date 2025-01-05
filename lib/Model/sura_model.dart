@@ -2,7 +2,8 @@ class SuraModel {
   String suraEnName;
   String suraArName;
   String noVerses;
-  int suraNo;
+
+  String fileName;
 
   static final List<String> arabicQuranSuras = [
     "الفاتحه",
@@ -353,17 +354,25 @@ class SuraModel {
     '6'
   ];
 
+  static final List<SuraModel> suraList = [];
+
+  // return SuraNo from its name
+
+  static int buildSuraNo(SuraModel sura_model) {
+    return int.parse(
+        sura_model.fileName.substring(0, sura_model.fileName.indexOf('.')));
+  }
+
+  // return SuraModel by its No
+  static SuraModel suraByIndex(String index) {
+    return suraList.firstWhere((suraModel) {
+      return buildSuraNo(suraModel).toString() == index;
+    });
+  }
+
   SuraModel(
       {required this.suraEnName,
       required this.suraArName,
       required this.noVerses,
-      required this.suraNo});
-
-  factory SuraModel.suraByIndex(int index) {
-    return SuraModel(
-        suraEnName: englishQuranSurahs[index],
-        suraArName: arabicQuranSuras[index],
-        noVerses: AyaNumber[index],
-        suraNo: index + 1);
-  }
+      required this.fileName});
 }

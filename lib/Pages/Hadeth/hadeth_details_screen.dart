@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami_app_new/Model/hadeth_model.dart';
 import 'package:islami_app_new/core/app_assets.dart';
 import 'package:islami_app_new/core/app_colors.dart';
+import 'package:islami_app_new/core/app_theme.dart';
 
 class HadethDetailsScreen extends StatelessWidget {
   const HadethDetailsScreen({Key? key}) : super(key: key);
@@ -11,6 +12,8 @@ class HadethDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as HadethModel;
+    final TextTheme textTheme = AppTheme.darkTheme.textTheme;
+
     return Scaffold(
         appBar: AppBar(
             // title: Text(
@@ -31,19 +34,21 @@ class HadethDetailsScreen extends StatelessWidget {
                   image: DecorationImage(
                       image: AssetImage(AppAssets.hadethDetailsBg),
                       fit: BoxFit.fill)),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Text(args.title,
-                        style: TextStyle(
-                            fontSize: 20, color: AppColors.primaryDark)),
-                    SizedBox(height: 10),
-                    Text(args.content.join(""),
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                            fontSize: 20, color: AppColors.primaryDark)),
-                  ],
-                ),
+              child: Column(
+                children: [
+                  Text(args.title,
+                      style: textTheme.headlineLarge
+                          ?.copyWith(color: AppColors.primaryDark)),
+                  const SizedBox(height: 10),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Text(args.content.join(""),
+                          textAlign: TextAlign.center,
+                          style: textTheme.headlineLarge?.copyWith(
+                              color: AppColors.primaryDark, height: 2)),
+                    ),
+                  ),
+                ],
               ),
             )
           ],

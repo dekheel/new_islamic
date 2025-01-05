@@ -5,6 +5,7 @@ import 'package:islami_app_new/Model/hadeth_model.dart';
 import 'package:islami_app_new/Pages/Hadeth/hadeth_details_screen.dart';
 import 'package:islami_app_new/core/app_assets.dart';
 import 'package:islami_app_new/core/app_colors.dart';
+import 'package:islami_app_new/core/app_theme.dart';
 
 class HadethTab extends StatefulWidget {
   HadethTab({super.key});
@@ -25,6 +26,9 @@ class _HadethTabState extends State<HadethTab> {
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = AppTheme.darkTheme.textTheme;
+    final Size size = MediaQuery.of(context).size;
+
     return Column(
       children: [
         Image.asset(AppAssets.logo, height: 100),
@@ -37,31 +41,30 @@ class _HadethTabState extends State<HadethTab> {
                       arguments: hadethList[index]);
                 },
                 child: Container(
-                  margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                   padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: AppColors.primaryDark,
-                      image: DecorationImage(
+                      image: const DecorationImage(
                           image: AssetImage(AppAssets.hadethContentBg),
                           fit: BoxFit.fill)),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Text(hadethList[index].title,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: AppColors.blackColor,
-                                fontWeight: FontWeight.bold)),
-                        SizedBox(height: 5),
-                        Text(hadethList[index].content.join(""),
-                            textAlign: TextAlign.justify,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: AppColors.blackColor,
-                                fontWeight: FontWeight.bold)),
-                      ],
-                    ),
+                  child: Column(
+                    children: [
+                      Text(hadethList[index].title,
+                          style: textTheme.headlineLarge
+                              ?.copyWith(color: AppColors.blackColor)),
+                      const SizedBox(height: 5),
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Text(hadethList[index].content.join(""),
+                              textAlign: TextAlign.justify,
+                              style: textTheme.headlineLarge
+                                  ?.copyWith(color: AppColors.blackColor)),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               );
@@ -69,7 +72,7 @@ class _HadethTabState extends State<HadethTab> {
             itemCount: hadethList.length,
             options: CarouselOptions(
                 enableInfiniteScroll: false,
-                height: 500,
+                height: size.height * .66,
                 viewportFraction: .75,
                 enlargeCenterPage: true),
           ),
