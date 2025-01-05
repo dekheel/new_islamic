@@ -8,4 +8,6 @@ class AppColors {
   static const Color textLightColor = Color(0xffFEFFE8);
 
   static const Color itemBackgroundColor = Color(0x99202020);
+
+  static const Color brownColor = Color(0xFF856B3F);
 }
