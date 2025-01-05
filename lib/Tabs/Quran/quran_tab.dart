@@ -18,6 +18,7 @@ class QuranTab extends StatefulWidget {
 
 class _QuranTabState extends State<QuranTab> {
   void addSuraList() {
+    SuraModel.suraList.clear();
     for (int i = 0; i < 114; i++) {
       SuraModel.suraList.add(SuraModel(
           suraEnName: SuraModel.englishQuranSurahs[i],
