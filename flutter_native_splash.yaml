@@ -64,7 +64,7 @@ flutter_native_splash:
     image: assets/images/splash_icon.png
 
   # Splash screen background color.
-    color: "#202020"
+    #color: "#202020"
 
   # App icon background color.
   #icon_background_color: "#111111"
@@ -100,7 +100,7 @@ flutter_native_splash:
   #image_dark_ios: assets/splash-invert-ios.png
   #image_web: assets/splash-web.gif
   #image_dark_web: assets/splash-invert-web.gif
-  #background_image_android: "assets/background-android.png"
+  background_image_android: "assets/images/branding_icon.png"
   #background_image_dark_android: "assets/dark-background-android.png"
   #background_image_ios: "assets/background-ios.png"
   #background_image_dark_ios: "assets/dark-background-ios.png"
