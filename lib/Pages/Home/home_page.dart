@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     QuranTab(),
     HadethTab(),
     const SebhaTab(),
-    const RadioTab(),
+    RadioTab(),
     const TimerTab(),
   ];
 
