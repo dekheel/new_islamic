@@ -13,16 +13,7 @@ class SebhaTab extends StatefulWidget {
 
 class _SebhaTabState extends State<SebhaTab> {
   double degrees = 1;
-  int counter = 0;
-  int index = 0;
 
-  List<String> tasbeehWords = ["سبحان الله", "الحمد لله", "الله اكبر"];
-
-  @override
-  State<SebhaTab> createState() => _SebhaTabState();
-}
-
-class _SebhaTabState extends State<SebhaTab> {
   List<String> tasbeehWords = ["سبحان الله", "الحمد لله", "الله اكبر"];
 
   double rotationAngle = 0;
@@ -64,7 +55,6 @@ class _SebhaTabState extends State<SebhaTab> {
                     AppAssets.sebhaBody,
                     height: screenSize.height * .40,
                     fit: BoxFit.fill,
-
                   ),
                 ),
               ),

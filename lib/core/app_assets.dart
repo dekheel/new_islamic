@@ -28,7 +28,6 @@ class AppAssets {
   static const String quranContentBg =
       '$routePath/quran_content_background.png';
 
-
   static const String introScreen = '$routePath/welcome.png';
   static const String introScreen1 = '$routePath/welcome1.png';
   static const String introScreenQuran = '$routePath/welcome quran.png';
@@ -37,4 +36,6 @@ class AppAssets {
 
   static const String sebhaHead = '$routePath/sebha_head.png';
   static const String sebhaBody = '$routePath/sebha_body.png';
+
+  static const String soundWave = '$routePath/sound_wave.png';
 }
